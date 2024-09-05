@@ -2,10 +2,8 @@
 
 # Instructions
 Create a small space shooter game with the following features:
-**Simple movement**
-
-**Shooting**
-
+**Simple movement**,
+**Shooting**,
 **Waves of enemies**
 
 **How?**
