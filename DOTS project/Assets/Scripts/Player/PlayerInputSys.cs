@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Entities;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [UpdateInGroup(typeof(InitializationSystemGroup), OrderLast = true)] // Setting update group to be last thing to run before game logic is run
 public partial class PlayerInputSys : SystemBase
@@ -20,7 +21,15 @@ public partial class PlayerInputSys : SystemBase
    protected override void OnStartRunning()
    {
       InputAction.Enable();
+      InputAction.MoveShoot.Shoot.performed += OnShoot;
       Player = SystemAPI.GetSingletonEntity<PlayerTag>(); // Gets a single entity and assume that there will always only be one of it
+   }
+
+   private void OnShoot(InputAction.CallbackContext obj)
+   {
+      if(!SystemAPI.Exists(Player)) return;
+      
+      SystemAPI.SetComponentEnabled<BulletTag>(Player, true);
    }
 
    protected override void OnUpdate()
