@@ -8,7 +8,7 @@ This project is created with Unity DOTS. Using Unity's entity component system (
 - Unity Job system allows me as a developer to assign certain functions to different threads and cores; this was used to move the player and the enemies
 - The EntityCommandBuffer was used to queue entity changes and execute them together in groups and was used to spawn bullets
 
-  #**Process**
+  # **Process**
   The goal of this project was to create a "performance aware space shooter" using Unity DOTS. A data oriented approach to coding which differs from standard OOP. This project had the following requirements:
   - Simple movement
   - Shooting
@@ -23,7 +23,7 @@ This project is created with Unity DOTS. Using Unity's entity component system (
     a development build I saw almost no change in allocated memory over a 3 minute idle phase, although in editor this changes. In editor a assembly known as "malloc(persistent)" grows and allocates more and more memory as the editor is in playmode. This seems to be 
     connected to the Burst compiler & job's but also seems to be a self allocating function within C# code.
 
- #**Reflection**
+ # **Reflection**
  - If I were to add the functionality to remove and despawn objects after a certain lifetime, it would shrink memory growth significantly and possibly solve the issue i explained before.
  - Using Jobs was an effective way to achieve multihreading and allows utilizing a CPU to its fullest.
  - Using entities instead of regular GameObjects was a data oriented workflow and allowed for more performance at the cost of boilerplate and more advanced code.
