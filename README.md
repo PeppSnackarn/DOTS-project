@@ -5,8 +5,9 @@ This project is created with Unity DOTS. Using Unity's entity component system (
 
 - Unity ECS was used for all game components; bullets, enemies and the player are all Entities and are using a data oriented approach in handling all of their seperate functions.
 - Unity's Burst compiler was also used in certain places where apliccable to compile the code into more efficient machine code that speeds up performance.
-- Unity Job system allows me as a developer to assign certain functions to different threads and cores; this was used to move the player and the enemies
-- The EntityCommandBuffer was used to queue entity changes and execute them together in groups and was used to spawn bullets
+- Unity Job system allows me as a developer to assign certain functions to different threads and cores; this was used to move the player and the enemies.
+- The EntityCommandBuffer was used to queue entity changes and execute them together in groups and was used to spawn bullets.
+- Zipped build can be accessed in TempBuild.
 
   # **Process**
   The goal of this project was to create a "performance aware space shooter" using Unity DOTS. A data oriented approach to coding which differs from standard OOP. This project had the following requirements:
