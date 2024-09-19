@@ -19,13 +19,14 @@ This project is created with Unity DOTS. Using Unity's entity component system (
   After having completed all requirements for the assignment I created a build and tested out the performance. Both by profiling the code in engine and through checking FPS in a build, my results where as followed:
   - Almost no frametime spent on any of my code on average spending 0.01 -0.03 ms on my systems (profiler mostly showed engine functions and the playerloop taking frametime)
   - Reaching almost 2400 fps in a build, leaving it on for a couple minutes letting around a hundred of enemies spawn didn't change this framerate at all, thus proving its pretty stable.
-  - Using the memory profiler I looked through my heap usage where I could see that it started out at 22 mb and after having been left to idle for a minute it only grew to 25 mb (objects are currently not being deleted) which shows a pretty efficient heap usage. Profiling 
-    a development build I saw almost no change in allocated memory over a 3 minute idle phase, although in editor this changes. In editor a assembly known as "malloc(persistent)" grows and allocates more and more memory as the editor is in playmode. This seems to be 
-    connected to the Burst compiler & job's but also seems to be a self allocating function within C# code.
+  - Using the memory profiler I looked through my heap usage where I could see that it started out at 22 mb and after having been left to idle for a couple minutes it only grew to 25 mb (objects are currently not being deleted) which shows a pretty efficient heap usage.
+  - Profiling a development build I saw almost no change in allocated memory over a 3 minute idle phase, although in editor this changes. In editor an assembly known as "malloc(persistent)" grows and allocates more and more memory as the editor is in playmode. This seems 
+    to be connected to the Burst compiler & job's but also seems to be a self allocating function within C# code.
 
  # **Reflection**
  - If I were to add the functionality to remove and despawn objects after a certain lifetime, it would shrink memory growth significantly and possibly solve the issue i explained before.
  - Using Jobs was an effective way to achieve multihreading and allows utilizing a CPU to its fullest.
  - Using entities instead of regular GameObjects was a data oriented workflow and allowed for more performance at the cost of boilerplate and more advanced code.
+ - Unity's Burst compiler was an interesting tool that can be easily used to make all code (where its applicable) more peformant.
 
  
